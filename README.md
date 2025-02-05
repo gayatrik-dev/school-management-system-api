@@ -46,5 +46,5 @@ Installation
 
 ### Test Collection: 
 
-1. *Import the [Postman collection](https://github.com/school-management-system-api/tree/main/tests) JSON file into your Postman and verify test cases and results.*
+1. *Import the [Postman collection](https://github.com/Gayatri95/school-management-system-api/tree/main/tests) JSON file into your Postman and verify test cases and results.*
 2. *The collection will also have API documentation for the request/response payloads.*
