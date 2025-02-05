@@ -26,6 +26,10 @@ const schoolSchema = new mongoose.Schema({
         ref: 'User', // Reference to the superAdmin who created the school
         required: true,
     },
+    schoolAdmins: [{
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'User'
+    }],  // Array of user IDs who are school admins
     updatedAt: {
         type: Date,
         default: Date.now,

@@ -12,8 +12,8 @@ const enrollStudent = async (req, res) => {
             return res.status(404).json({ message: 'School not found' });
         }
 
-        // Ensure the logged-in user is the schoolAdmin of the specified school
-        if (req.user.id !== school.createdBy.toString()) {
+        // Ensure the logged-in user is a schoolAdmin for the specified school
+        if (!school.schoolAdmins || !school.schoolAdmins.includes(req.user.id)) {
             return res.status(403).json({ message: 'You are not authorized to enroll a student in this school' });
         }
 
@@ -55,8 +55,8 @@ const getAllStudents = async (req, res) => {
             return res.status(404).json({ message: 'School not found' });
         }
 
-        // Ensure the logged-in user is the schoolAdmin of the specified school
-        if (req.user.id !== school.createdBy.toString()) {
+        // Ensure the logged-in user is a schoolAdmin for the specified school
+        if (!school.schoolAdmins || (!school.schoolAdmins.includes(req.user.id) && req.user.role !== 'superAdmin')) {
             return res.status(403).json({ message: 'You are not authorized to view students in this school' });
         }
 
@@ -95,10 +95,11 @@ const updateStudentProfile = async (req, res) => {
             return res.status(404).json({ message: 'Student not found' });
         }
 
-        // Ensure the logged-in user is the schoolAdmin for the specified school
         const school = await School.findById(student.school);
-        if (req.user.id !== school.createdBy.toString()) {
-            return res.status(403).json({ message: 'You are not authorized to update this student' });
+
+        // Ensure the logged-in user is a schoolAdmin for the specified school
+        if (!school.schoolAdmins || !school.schoolAdmins.includes(req.user.id)) {
+            return res.status(403).json({ message: 'You are not authorized to update students in this school' });
         }
 
         student.firstName = firstName || student.firstName;
@@ -134,9 +135,9 @@ const transferStudent = async (req, res) => {
             return res.status(404).json({ message: 'Current school not found' });
         }
 
-        // Ensure the logged-in user is the schoolAdmin for the student's current school
-        if (req.user.id !== currentSchool.createdBy.toString()) {
-            return res.status(403).json({ message: 'You are not authorized to transfer this student' });
+        // Ensure the logged-in user is a schoolAdmin for the specified school
+        if (!currentSchool.schoolAdmins || !currentSchool.schoolAdmins.includes(req.user.id)) {
+            return res.status(403).json({ message: 'You are not authorized to transfer students in this school' });
         }
 
         // Check if the new school exists
@@ -173,12 +174,13 @@ const deleteStudent = async (req, res) => {
         }
 
         const school = await School.findById(student.school);
-        if (req.user.id !== school.createdBy.toString()) {
-            return res.status(403).json({ message: 'You are not authorized to delete this student' });
+
+        // Ensure the logged-in user is a schoolAdmin for the specified school
+        if (!school.schoolAdmins || !school.schoolAdmins.includes(req.user.id)) {
+            return res.status(403).json({ message: 'You are not authorized to delete students in this school' });
         }
 
-        // @ts-ignore
-        await student.remove();
+        await student.deleteOne({ _id: studentId });
         res.status(200).json({ message: 'Student deleted successfully' });
     } catch (error) {
         console.error(error);

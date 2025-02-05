@@ -2,6 +2,7 @@
 	"info": {
 		"_postman_id": "617aba5b-4c95-4721-8947-672b098de2a4",
 		"name": "school-management-system-api",
+		"description": "### This collection contains all the essential routes for managing users, schools, classrooms, and students. Each API request includes the necessary HTTP methods, expected request bodies, and sample responses.",
 		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
 		"_exporter_id": "41747023"
 	},
@@ -153,7 +154,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"username\": \"schoolAdminUser\",\r\n    \"email\": \"schooladmin@example.com\",\r\n    \"password\": \"SchoolAdminPassword123\",\r\n    \"role\": \"schoolAdmin\"\r\n}",
+							"raw": "{\r\n    \"username\": \"schoolAdminUser\",\r\n    \"email\": \"schooladmin@example.com\",\r\n    \"password\": \"SchoolAdminPassword123\",\r\n    \"role\": \"schoolAdmin\",\r\n    \"schoolId\": \"your-school-id\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -1044,6 +1045,2329 @@
 							"body": "{\n    \"_id\": \"67a3044eb4e6a4d9418c34dc\",\n    \"username\": \"superAdminUser_updated\",\n    \"email\": \"superadmin_updated@example.com\",\n    \"role\": \"superAdmin\",\n    \"__v\": 0\n}"
 						}
 					]
+				}
+			]
+		},
+		{
+			"name": "schools",
+			"item": [
+				{
+					"name": "createSchool",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3YTMwNDRlYjRlNmE0ZDk0MThjMzRkYyIsImlhdCI6MTczODczNjg5NiwiZXhwIjoxNzM4NzQwNDk2fQ.QFWFdvJi-l3kIqiOrCzvSS4Ju74gBbqjrZnwSavE1-U"
+							}
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Green Valley High School\",\r\n    \"address\": \"123 Green Valley Rd\",\r\n    \"phoneNumber\": \"+1 234 567 890\",\r\n    \"email\": \"greenvalley@example.com\",\r\n    \"website\": \"http://greenvalley.edu\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:5000/api/schools/create"
+					},
+					"response": [
+						{
+							"name": "success",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"name\": \"Green Valley High School\",\r\n    \"address\": \"123 Green Valley Rd\",\r\n    \"phoneNumber\": \"+1 234 567 890\",\r\n    \"email\": \"greenvalley@example.com\",\r\n    \"website\": \"http://greenvalley.edu\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "http://localhost:5000/api/schools/create"
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Security-Policy",
+									"value": "default-src 'self';base-uri 'self';font-src 'self' https: data:;form-action 'self';frame-ancestors 'self';img-src 'self' data:;object-src 'none';script-src 'self';script-src-attr 'none';style-src 'self' https: 'unsafe-inline';upgrade-insecure-requests"
+								},
+								{
+									"key": "Cross-Origin-Opener-Policy",
+									"value": "same-origin"
+								},
+								{
+									"key": "Cross-Origin-Resource-Policy",
+									"value": "same-origin"
+								},
+								{
+									"key": "Origin-Agent-Cluster",
+									"value": "?1"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "no-referrer"
+								},
+								{
+									"key": "Strict-Transport-Security",
+									"value": "max-age=31536000; includeSubDomains"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-DNS-Prefetch-Control",
+									"value": "off"
+								},
+								{
+									"key": "X-Download-Options",
+									"value": "noopen"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "SAMEORIGIN"
+								},
+								{
+									"key": "X-Permitted-Cross-Domain-Policies",
+									"value": "none"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "0"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "100"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "99"
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 05 Feb 2025 07:13:35 GMT"
+								},
+								{
+									"key": "X-RateLimit-Reset",
+									"value": "1738740516"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "376"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"178-Fvh7QnE74mppyfvSIP5QwlqrPsg\""
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"School created successfully\",\n    \"school\": {\n        \"name\": \"Green Valley High School\",\n        \"address\": \"123 Green Valley Rd\",\n        \"phoneNumber\": \"+1 234 567 890\",\n        \"email\": \"greenvalley@example.com\",\n        \"website\": \"http://greenvalley.edu\",\n        \"createdBy\": \"67a3044eb4e6a4d9418c34dc\",\n        \"_id\": \"67a30f9ff033649a1284dc16\",\n        \"updatedAt\": \"2025-02-05T07:13:35.992Z\",\n        \"createdAt\": \"2025-02-05T07:13:35.992Z\",\n        \"__v\": 0\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "getAllSchools",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3YTMwNDRlYjRlNmE0ZDk0MThjMzRkYyIsImlhdCI6MTczODczNjg5NiwiZXhwIjoxNzM4NzQwNDk2fQ.QFWFdvJi-l3kIqiOrCzvSS4Ju74gBbqjrZnwSavE1-U"
+							}
+						},
+						"method": "GET",
+						"header": [],
+						"url": "http://localhost:5000/api/schools"
+					},
+					"response": [
+						{
+							"name": "success",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": "http://localhost:5000/api/schools"
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Security-Policy",
+									"value": "default-src 'self';base-uri 'self';font-src 'self' https: data:;form-action 'self';frame-ancestors 'self';img-src 'self' data:;object-src 'none';script-src 'self';script-src-attr 'none';style-src 'self' https: 'unsafe-inline';upgrade-insecure-requests"
+								},
+								{
+									"key": "Cross-Origin-Opener-Policy",
+									"value": "same-origin"
+								},
+								{
+									"key": "Cross-Origin-Resource-Policy",
+									"value": "same-origin"
+								},
+								{
+									"key": "Origin-Agent-Cluster",
+									"value": "?1"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "no-referrer"
+								},
+								{
+									"key": "Strict-Transport-Security",
+									"value": "max-age=31536000; includeSubDomains"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-DNS-Prefetch-Control",
+									"value": "off"
+								},
+								{
+									"key": "X-Download-Options",
+									"value": "noopen"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "SAMEORIGIN"
+								},
+								{
+									"key": "X-Permitted-Cross-Domain-Policies",
+									"value": "none"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "0"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "100"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "98"
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 05 Feb 2025 07:14:43 GMT"
+								},
+								{
+									"key": "X-RateLimit-Reset",
+									"value": "1738740516"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "327"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"147-mfqmpZ61kiaCsYc8cjKqY5BmAYI\""
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "[\n    {\n        \"_id\": \"67a30f9ff033649a1284dc16\",\n        \"name\": \"Green Valley High School\",\n        \"address\": \"123 Green Valley Rd\",\n        \"phoneNumber\": \"+1 234 567 890\",\n        \"email\": \"greenvalley@example.com\",\n        \"website\": \"http://greenvalley.edu\",\n        \"createdBy\": \"67a3044eb4e6a4d9418c34dc\",\n        \"updatedAt\": \"2025-02-05T07:13:35.992Z\",\n        \"createdAt\": \"2025-02-05T07:13:35.992Z\",\n        \"__v\": 0\n    }\n]"
+						}
+					]
+				},
+				{
+					"name": "getSchoolbyId",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3YTMwNDRlYjRlNmE0ZDk0MThjMzRkYyIsImlhdCI6MTczODczNjg5NiwiZXhwIjoxNzM4NzQwNDk2fQ.QFWFdvJi-l3kIqiOrCzvSS4Ju74gBbqjrZnwSavE1-U"
+							}
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5000/api/schools/:schoolId",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"schools",
+								":schoolId"
+							],
+							"variable": [
+								{
+									"key": "schoolId",
+									"value": "67a30f9ff033649a1284dc16"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "success",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:5000/api/schools/:schoolId",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "5000",
+									"path": [
+										"api",
+										"schools",
+										":schoolId"
+									],
+									"variable": [
+										{
+											"key": "schoolId",
+											"value": "67a30f9ff033649a1284dc16"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Security-Policy",
+									"value": "default-src 'self';base-uri 'self';font-src 'self' https: data:;form-action 'self';frame-ancestors 'self';img-src 'self' data:;object-src 'none';script-src 'self';script-src-attr 'none';style-src 'self' https: 'unsafe-inline';upgrade-insecure-requests"
+								},
+								{
+									"key": "Cross-Origin-Opener-Policy",
+									"value": "same-origin"
+								},
+								{
+									"key": "Cross-Origin-Resource-Policy",
+									"value": "same-origin"
+								},
+								{
+									"key": "Origin-Agent-Cluster",
+									"value": "?1"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "no-referrer"
+								},
+								{
+									"key": "Strict-Transport-Security",
+									"value": "max-age=31536000; includeSubDomains"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-DNS-Prefetch-Control",
+									"value": "off"
+								},
+								{
+									"key": "X-Download-Options",
+									"value": "noopen"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "SAMEORIGIN"
+								},
+								{
+									"key": "X-Permitted-Cross-Domain-Policies",
+									"value": "none"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "0"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "100"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "97"
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 05 Feb 2025 07:15:46 GMT"
+								},
+								{
+									"key": "X-RateLimit-Reset",
+									"value": "1738740516"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "325"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"145-laycjLDZuaLRzmv3OmgZrZfw44U\""
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"_id\": \"67a30f9ff033649a1284dc16\",\n    \"name\": \"Green Valley High School\",\n    \"address\": \"123 Green Valley Rd\",\n    \"phoneNumber\": \"+1 234 567 890\",\n    \"email\": \"greenvalley@example.com\",\n    \"website\": \"http://greenvalley.edu\",\n    \"createdBy\": \"67a3044eb4e6a4d9418c34dc\",\n    \"updatedAt\": \"2025-02-05T07:13:35.992Z\",\n    \"createdAt\": \"2025-02-05T07:13:35.992Z\",\n    \"__v\": 0\n}"
+						}
+					]
+				},
+				{
+					"name": "updateSchool",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3YTMwNDRlYjRlNmE0ZDk0MThjMzRkYyIsImlhdCI6MTczODczNjg5NiwiZXhwIjoxNzM4NzQwNDk2fQ.QFWFdvJi-l3kIqiOrCzvSS4Ju74gBbqjrZnwSavE1-U"
+							}
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Green Valley International School\",\r\n    \"address\": \"123 Green Valley Rd, Suite 201\",\r\n    \"phoneNumber\": \"+1 234 567 890\",\r\n    \"email\": \"greenvalleyinternational@example.com\",\r\n    \"website\": \"http://greenvalleyinternational.edu\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5000/api/schools/:schoolId",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"schools",
+								":schoolId"
+							],
+							"variable": [
+								{
+									"key": "schoolId",
+									"value": "67a30f9ff033649a1284dc16"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "success",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"name\": \"Green Valley International School\",\r\n    \"address\": \"123 Green Valley Rd, Suite 201\",\r\n    \"phoneNumber\": \"+1 234 567 890\",\r\n    \"email\": \"greenvalleyinternational@example.com\",\r\n    \"website\": \"http://greenvalleyinternational.edu\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:5000/api/schools/:schoolId",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "5000",
+									"path": [
+										"api",
+										"schools",
+										":schoolId"
+									],
+									"variable": [
+										{
+											"key": "schoolId",
+											"value": "67a30f9ff033649a1284dc16"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Security-Policy",
+									"value": "default-src 'self';base-uri 'self';font-src 'self' https: data:;form-action 'self';frame-ancestors 'self';img-src 'self' data:;object-src 'none';script-src 'self';script-src-attr 'none';style-src 'self' https: 'unsafe-inline';upgrade-insecure-requests"
+								},
+								{
+									"key": "Cross-Origin-Opener-Policy",
+									"value": "same-origin"
+								},
+								{
+									"key": "Cross-Origin-Resource-Policy",
+									"value": "same-origin"
+								},
+								{
+									"key": "Origin-Agent-Cluster",
+									"value": "?1"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "no-referrer"
+								},
+								{
+									"key": "Strict-Transport-Security",
+									"value": "max-age=31536000; includeSubDomains"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-DNS-Prefetch-Control",
+									"value": "off"
+								},
+								{
+									"key": "X-Download-Options",
+									"value": "noopen"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "SAMEORIGIN"
+								},
+								{
+									"key": "X-Permitted-Cross-Domain-Policies",
+									"value": "none"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "0"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "100"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "95"
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 05 Feb 2025 07:17:59 GMT"
+								},
+								{
+									"key": "X-RateLimit-Reset",
+									"value": "1738740516"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "422"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"1a6-cctKrc+TZKbnve3Fvnd6kOMEbTg\""
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"School updated successfully\",\n    \"school\": {\n        \"_id\": \"67a30f9ff033649a1284dc16\",\n        \"name\": \"Green Valley International School\",\n        \"address\": \"123 Green Valley Rd, Suite 201\",\n        \"phoneNumber\": \"+1 234 567 890\",\n        \"email\": \"greenvalleyinternational@example.com\",\n        \"website\": \"http://greenvalleyinternational.edu\",\n        \"createdBy\": \"67a3044eb4e6a4d9418c34dc\",\n        \"updatedAt\": \"2025-02-05T07:17:59.640Z\",\n        \"createdAt\": \"2025-02-05T07:13:35.992Z\",\n        \"__v\": 0\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "deleteSchool",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3YTMwNDRlYjRlNmE0ZDk0MThjMzRkYyIsImlhdCI6MTczODczNjg5NiwiZXhwIjoxNzM4NzQwNDk2fQ.QFWFdvJi-l3kIqiOrCzvSS4Ju74gBbqjrZnwSavE1-U"
+							}
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5000/api/schools/:schoolId",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"schools",
+								":schoolId"
+							],
+							"variable": [
+								{
+									"key": "schoolId",
+									"value": "67a30f9ff033649a1284dc16"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "success",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:5000/api/schools/:schoolId",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "5000",
+									"path": [
+										"api",
+										"schools",
+										":schoolId"
+									],
+									"variable": [
+										{
+											"key": "schoolId",
+											"value": "67a30f9ff033649a1284dc16"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Security-Policy",
+									"value": "default-src 'self';base-uri 'self';font-src 'self' https: data:;form-action 'self';frame-ancestors 'self';img-src 'self' data:;object-src 'none';script-src 'self';script-src-attr 'none';style-src 'self' https: 'unsafe-inline';upgrade-insecure-requests"
+								},
+								{
+									"key": "Cross-Origin-Opener-Policy",
+									"value": "same-origin"
+								},
+								{
+									"key": "Cross-Origin-Resource-Policy",
+									"value": "same-origin"
+								},
+								{
+									"key": "Origin-Agent-Cluster",
+									"value": "?1"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "no-referrer"
+								},
+								{
+									"key": "Strict-Transport-Security",
+									"value": "max-age=31536000; includeSubDomains"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-DNS-Prefetch-Control",
+									"value": "off"
+								},
+								{
+									"key": "X-Download-Options",
+									"value": "noopen"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "SAMEORIGIN"
+								},
+								{
+									"key": "X-Permitted-Cross-Domain-Policies",
+									"value": "none"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "0"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "100"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "99"
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 05 Feb 2025 07:23:52 GMT"
+								},
+								{
+									"key": "X-RateLimit-Reset",
+									"value": "1738741133"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "41"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"29-tWMkJvRG1cdVwT8LXfF34t7yWO8\""
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"School deleted successfully\"\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "classrooms",
+			"item": [
+				{
+					"name": "createClassroom",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3YTMzMWU0N2Y1ZDEwNzFhNzExZjgzNSIsImlhdCI6MTczODc0ODM4OCwiZXhwIjoxNzM4NzUxOTg4fQ.RebO-4qfuQ_yTC4Fo-OHfYN39c3788mgeCgdpaFnxJg"
+							}
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Math Classroom\",\r\n    \"capacity\": 30,\r\n    \"resources\": [\"Projector\", \"Whiteboard\", \"Computer\"],\r\n    \"schoolId\": \"67a3277f7171aa1a4825a700\"  // ID of the school where the classroom is being created\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:5000/api/classrooms/create"
+					},
+					"response": [
+						{
+							"name": "success",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"name\": \"Math Classroom\",\r\n    \"capacity\": 30,\r\n    \"resources\": [\"Projector\", \"Whiteboard\", \"Computer\"],\r\n    \"schoolId\": \"67a3277f7171aa1a4825a700\"  // ID of the school where the classroom is being created\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "http://localhost:5000/api/classrooms/create"
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Security-Policy",
+									"value": "default-src 'self';base-uri 'self';font-src 'self' https: data:;form-action 'self';frame-ancestors 'self';img-src 'self' data:;object-src 'none';script-src 'self';script-src-attr 'none';style-src 'self' https: 'unsafe-inline';upgrade-insecure-requests"
+								},
+								{
+									"key": "Cross-Origin-Opener-Policy",
+									"value": "same-origin"
+								},
+								{
+									"key": "Cross-Origin-Resource-Policy",
+									"value": "same-origin"
+								},
+								{
+									"key": "Origin-Agent-Cluster",
+									"value": "?1"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "no-referrer"
+								},
+								{
+									"key": "Strict-Transport-Security",
+									"value": "max-age=31536000; includeSubDomains"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-DNS-Prefetch-Control",
+									"value": "off"
+								},
+								{
+									"key": "X-Download-Options",
+									"value": "noopen"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "SAMEORIGIN"
+								},
+								{
+									"key": "X-Permitted-Cross-Domain-Policies",
+									"value": "none"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "0"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "100"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "98"
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 05 Feb 2025 09:40:07 GMT"
+								},
+								{
+									"key": "X-RateLimit-Reset",
+									"value": "1738749289"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "340"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"154-hxISSEUadctlBArWZkzusngxfv8\""
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Classroom created successfully\",\n    \"classroom\": {\n        \"name\": \"Math Classroom\",\n        \"capacity\": 30,\n        \"resources\": [\n            \"Projector\",\n            \"Whiteboard\",\n            \"Computer\"\n        ],\n        \"school\": \"67a3277f7171aa1a4825a700\",\n        \"createdBy\": \"67a331e47f5d1071a711f835\",\n        \"_id\": \"67a331f77f5d1071a711f83b\",\n        \"updatedAt\": \"2025-02-05T09:40:07.417Z\",\n        \"createdAt\": \"2025-02-05T09:40:07.417Z\",\n        \"__v\": 0\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "getAllClassrooms",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3YTMzMWU0N2Y1ZDEwNzFhNzExZjgzNSIsImlhdCI6MTczODc1MDMzMywiZXhwIjoxNzM4NzUzOTMzfQ.4IzERN00HfTvkDPGeReW_MtzIiShCgdF_V4vA2mzxU8"
+							}
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5000/api/classrooms/:schoolId",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"classrooms",
+								":schoolId"
+							],
+							"variable": [
+								{
+									"key": "schoolId",
+									"value": "67a3277f7171aa1a4825a700"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "success",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:5000/api/classrooms/:schoolId",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "5000",
+									"path": [
+										"api",
+										"classrooms",
+										":schoolId"
+									],
+									"variable": [
+										{
+											"key": "schoolId",
+											"value": "67a3277f7171aa1a4825a700"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Security-Policy",
+									"value": "default-src 'self';base-uri 'self';font-src 'self' https: data:;form-action 'self';frame-ancestors 'self';img-src 'self' data:;object-src 'none';script-src 'self';script-src-attr 'none';style-src 'self' https: 'unsafe-inline';upgrade-insecure-requests"
+								},
+								{
+									"key": "Cross-Origin-Opener-Policy",
+									"value": "same-origin"
+								},
+								{
+									"key": "Cross-Origin-Resource-Policy",
+									"value": "same-origin"
+								},
+								{
+									"key": "Origin-Agent-Cluster",
+									"value": "?1"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "no-referrer"
+								},
+								{
+									"key": "Strict-Transport-Security",
+									"value": "max-age=31536000; includeSubDomains"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-DNS-Prefetch-Control",
+									"value": "off"
+								},
+								{
+									"key": "X-Download-Options",
+									"value": "noopen"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "SAMEORIGIN"
+								},
+								{
+									"key": "X-Permitted-Cross-Domain-Policies",
+									"value": "none"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "0"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "100"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "99"
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 05 Feb 2025 11:11:56 GMT"
+								},
+								{
+									"key": "X-RateLimit-Reset",
+									"value": "1738754817"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "285"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"11d-FlkJTy7yw/EOeulz6aYGPmhvu2E\""
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "[\n    {\n        \"_id\": \"67a331f77f5d1071a711f83b\",\n        \"name\": \"Math Classroom\",\n        \"capacity\": 30,\n        \"resources\": [\n            \"Projector\",\n            \"Whiteboard\",\n            \"Computer\"\n        ],\n        \"school\": \"67a3277f7171aa1a4825a700\",\n        \"createdBy\": \"67a331e47f5d1071a711f835\",\n        \"updatedAt\": \"2025-02-05T09:40:07.417Z\",\n        \"createdAt\": \"2025-02-05T09:40:07.417Z\",\n        \"__v\": 0\n    }\n]"
+						}
+					]
+				},
+				{
+					"name": "getClassroombyId",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3YTMzMWU0N2Y1ZDEwNzFhNzExZjgzNSIsImlhdCI6MTczODc1NDExOCwiZXhwIjoxNzM4NzU3NzE4fQ.wbaV7Nfxz6M2oLRiNVo-bq0tV2XR_SkC93I1GC2N1nA"
+							}
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5000/api/classrooms/classroom/:classroomId",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"classrooms",
+								"classroom",
+								":classroomId"
+							],
+							"variable": [
+								{
+									"key": "classroomId",
+									"value": "67a331f77f5d1071a711f83b"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "success",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:5000/api/classrooms/classroom/:classroomId",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "5000",
+									"path": [
+										"api",
+										"classrooms",
+										"classroom",
+										":classroomId"
+									],
+									"variable": [
+										{
+											"key": "classroomId",
+											"value": "67a331f77f5d1071a711f83b"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Security-Policy",
+									"value": "default-src 'self';base-uri 'self';font-src 'self' https: data:;form-action 'self';frame-ancestors 'self';img-src 'self' data:;object-src 'none';script-src 'self';script-src-attr 'none';style-src 'self' https: 'unsafe-inline';upgrade-insecure-requests"
+								},
+								{
+									"key": "Cross-Origin-Opener-Policy",
+									"value": "same-origin"
+								},
+								{
+									"key": "Cross-Origin-Resource-Policy",
+									"value": "same-origin"
+								},
+								{
+									"key": "Origin-Agent-Cluster",
+									"value": "?1"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "no-referrer"
+								},
+								{
+									"key": "Strict-Transport-Security",
+									"value": "max-age=31536000; includeSubDomains"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-DNS-Prefetch-Control",
+									"value": "off"
+								},
+								{
+									"key": "X-Download-Options",
+									"value": "noopen"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "SAMEORIGIN"
+								},
+								{
+									"key": "X-Permitted-Cross-Domain-Policies",
+									"value": "none"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "0"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "100"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "99"
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 05 Feb 2025 11:30:25 GMT"
+								},
+								{
+									"key": "X-RateLimit-Reset",
+									"value": "1738755926"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "283"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"11b-qx0xK9+CxIU9e09mFvJoy+gW5rw\""
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"_id\": \"67a331f77f5d1071a711f83b\",\n    \"name\": \"Math Classroom\",\n    \"capacity\": 30,\n    \"resources\": [\n        \"Projector\",\n        \"Whiteboard\",\n        \"Computer\"\n    ],\n    \"school\": \"67a3277f7171aa1a4825a700\",\n    \"createdBy\": \"67a331e47f5d1071a711f835\",\n    \"updatedAt\": \"2025-02-05T09:40:07.417Z\",\n    \"createdAt\": \"2025-02-05T09:40:07.417Z\",\n    \"__v\": 0\n}"
+						}
+					]
+				},
+				{
+					"name": "updateClassroom",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3YTMzMWU0N2Y1ZDEwNzFhNzExZjgzNSIsImlhdCI6MTczODc1NDExOCwiZXhwIjoxNzM4NzU3NzE4fQ.wbaV7Nfxz6M2oLRiNVo-bq0tV2XR_SkC93I1GC2N1nA"
+							}
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Advanced Math Classroom\",\r\n    \"capacity\": 35,\r\n    \"resources\": [\"Projector\", \"Whiteboard\", \"Smartboard\"]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5000/api/classrooms/:classroomId",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"classrooms",
+								":classroomId"
+							],
+							"variable": [
+								{
+									"key": "classroomId",
+									"value": "67a331f77f5d1071a711f83b"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "success",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"name\": \"Advanced Math Classroom\",\r\n    \"capacity\": 35,\r\n    \"resources\": [\"Projector\", \"Whiteboard\", \"Smartboard\"]\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:5000/api/classrooms/:classroomId",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "5000",
+									"path": [
+										"api",
+										"classrooms",
+										":classroomId"
+									],
+									"variable": [
+										{
+											"key": "classroomId",
+											"value": "67a331f77f5d1071a711f83b"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Security-Policy",
+									"value": "default-src 'self';base-uri 'self';font-src 'self' https: data:;form-action 'self';frame-ancestors 'self';img-src 'self' data:;object-src 'none';script-src 'self';script-src-attr 'none';style-src 'self' https: 'unsafe-inline';upgrade-insecure-requests"
+								},
+								{
+									"key": "Cross-Origin-Opener-Policy",
+									"value": "same-origin"
+								},
+								{
+									"key": "Cross-Origin-Resource-Policy",
+									"value": "same-origin"
+								},
+								{
+									"key": "Origin-Agent-Cluster",
+									"value": "?1"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "no-referrer"
+								},
+								{
+									"key": "Strict-Transport-Security",
+									"value": "max-age=31536000; includeSubDomains"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-DNS-Prefetch-Control",
+									"value": "off"
+								},
+								{
+									"key": "X-Download-Options",
+									"value": "noopen"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "SAMEORIGIN"
+								},
+								{
+									"key": "X-Permitted-Cross-Domain-Policies",
+									"value": "none"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "0"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "100"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "98"
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 05 Feb 2025 11:32:32 GMT"
+								},
+								{
+									"key": "X-RateLimit-Reset",
+									"value": "1738755926"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "351"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"15f-HOkxuogN2VVfDrBhO+ct3cGo2FI\""
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Classroom updated successfully\",\n    \"classroom\": {\n        \"_id\": \"67a331f77f5d1071a711f83b\",\n        \"name\": \"Advanced Math Classroom\",\n        \"capacity\": 35,\n        \"resources\": [\n            \"Projector\",\n            \"Whiteboard\",\n            \"Smartboard\"\n        ],\n        \"school\": \"67a3277f7171aa1a4825a700\",\n        \"createdBy\": \"67a331e47f5d1071a711f835\",\n        \"updatedAt\": \"2025-02-05T11:32:32.644Z\",\n        \"createdAt\": \"2025-02-05T09:40:07.417Z\",\n        \"__v\": 1\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "deleteClassroom",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3YTMzMWU0N2Y1ZDEwNzFhNzExZjgzNSIsImlhdCI6MTczODc1NDExOCwiZXhwIjoxNzM4NzU3NzE4fQ.wbaV7Nfxz6M2oLRiNVo-bq0tV2XR_SkC93I1GC2N1nA"
+							}
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5000/api/classrooms/:classroomId",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"classrooms",
+								":classroomId"
+							],
+							"variable": [
+								{
+									"key": "classroomId",
+									"value": "67a331f77f5d1071a711f83b"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "success",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:5000/api/classrooms/:classroomId",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "5000",
+									"path": [
+										"api",
+										"classrooms",
+										":classroomId"
+									],
+									"variable": [
+										{
+											"key": "classroomId",
+											"value": "67a331f77f5d1071a711f83b"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Security-Policy",
+									"value": "default-src 'self';base-uri 'self';font-src 'self' https: data:;form-action 'self';frame-ancestors 'self';img-src 'self' data:;object-src 'none';script-src 'self';script-src-attr 'none';style-src 'self' https: 'unsafe-inline';upgrade-insecure-requests"
+								},
+								{
+									"key": "Cross-Origin-Opener-Policy",
+									"value": "same-origin"
+								},
+								{
+									"key": "Cross-Origin-Resource-Policy",
+									"value": "same-origin"
+								},
+								{
+									"key": "Origin-Agent-Cluster",
+									"value": "?1"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "no-referrer"
+								},
+								{
+									"key": "Strict-Transport-Security",
+									"value": "max-age=31536000; includeSubDomains"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-DNS-Prefetch-Control",
+									"value": "off"
+								},
+								{
+									"key": "X-Download-Options",
+									"value": "noopen"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "SAMEORIGIN"
+								},
+								{
+									"key": "X-Permitted-Cross-Domain-Policies",
+									"value": "none"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "0"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "100"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "97"
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 05 Feb 2025 11:33:36 GMT"
+								},
+								{
+									"key": "X-RateLimit-Reset",
+									"value": "1738755926"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "44"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"2c-5vfu+lGtd6LwEr3shL5pYDCVzIQ\""
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Classroom deleted successfully\"\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "students",
+			"item": [
+				{
+					"name": "enrollStudent",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3YTMzMWU0N2Y1ZDEwNzFhNzExZjgzNSIsImlhdCI6MTczODc1NDExOCwiZXhwIjoxNzM4NzU3NzE4fQ.wbaV7Nfxz6M2oLRiNVo-bq0tV2XR_SkC93I1GC2N1nA"
+							}
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"firstName\": \"John\",\r\n    \"lastName\": \"Doe\",\r\n    \"email\": \"john.doe@example.com\",\r\n    \"dateOfBirth\": \"2005-05-12\",\r\n    \"phoneNumber\": \"+1234567890\",\r\n    \"schoolId\": \"67a3277f7171aa1a4825a700\"  // ID of the school where the student is being enrolled\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:5000/api/students/enroll"
+					},
+					"response": [
+						{
+							"name": "success",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"firstName\": \"John\",\r\n    \"lastName\": \"Doe\",\r\n    \"email\": \"john.doe@example.com\",\r\n    \"dateOfBirth\": \"2005-05-12\",\r\n    \"phoneNumber\": \"+1234567890\",\r\n    \"schoolId\": \"67a3277f7171aa1a4825a700\"  // ID of the school where the student is being enrolled\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "http://localhost:5000/api/students/enroll"
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Security-Policy",
+									"value": "default-src 'self';base-uri 'self';font-src 'self' https: data:;form-action 'self';frame-ancestors 'self';img-src 'self' data:;object-src 'none';script-src 'self';script-src-attr 'none';style-src 'self' https: 'unsafe-inline';upgrade-insecure-requests"
+								},
+								{
+									"key": "Cross-Origin-Opener-Policy",
+									"value": "same-origin"
+								},
+								{
+									"key": "Cross-Origin-Resource-Policy",
+									"value": "same-origin"
+								},
+								{
+									"key": "Origin-Agent-Cluster",
+									"value": "?1"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "no-referrer"
+								},
+								{
+									"key": "Strict-Transport-Security",
+									"value": "max-age=31536000; includeSubDomains"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-DNS-Prefetch-Control",
+									"value": "off"
+								},
+								{
+									"key": "X-Download-Options",
+									"value": "noopen"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "SAMEORIGIN"
+								},
+								{
+									"key": "X-Permitted-Cross-Domain-Policies",
+									"value": "none"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "0"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "100"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "96"
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 05 Feb 2025 11:36:54 GMT"
+								},
+								{
+									"key": "X-RateLimit-Reset",
+									"value": "1738755926"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "445"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"1bd-YeeEYcbsp2wwzI29Tl3rdqnp4Ms\""
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Student enrolled successfully\",\n    \"student\": {\n        \"firstName\": \"John\",\n        \"lastName\": \"Doe\",\n        \"email\": \"john.doe@example.com\",\n        \"dateOfBirth\": \"2005-05-12T00:00:00.000Z\",\n        \"phoneNumber\": \"+1234567890\",\n        \"school\": \"67a3277f7171aa1a4825a700\",\n        \"status\": \"enrolled\",\n        \"createdBy\": \"67a331e47f5d1071a711f835\",\n        \"_id\": \"67a34d56390982e5a8007d22\",\n        \"enrolledAt\": \"2025-02-05T11:36:54.740Z\",\n        \"updatedAt\": \"2025-02-05T11:36:54.740Z\",\n        \"createdAt\": \"2025-02-05T11:36:54.740Z\",\n        \"__v\": 0\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "getAllStudents",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3YTMzMWU0N2Y1ZDEwNzFhNzExZjgzNSIsImlhdCI6MTczODc1NDExOCwiZXhwIjoxNzM4NzU3NzE4fQ.wbaV7Nfxz6M2oLRiNVo-bq0tV2XR_SkC93I1GC2N1nA"
+							}
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5000/api/students/:schoolId",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"students",
+								":schoolId"
+							],
+							"variable": [
+								{
+									"key": "schoolId",
+									"value": "67a3277f7171aa1a4825a700"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "success",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:5000/api/students/:schoolId",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "5000",
+									"path": [
+										"api",
+										"students",
+										":schoolId"
+									],
+									"variable": [
+										{
+											"key": "schoolId",
+											"value": "67a3277f7171aa1a4825a700"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Security-Policy",
+									"value": "default-src 'self';base-uri 'self';font-src 'self' https: data:;form-action 'self';frame-ancestors 'self';img-src 'self' data:;object-src 'none';script-src 'self';script-src-attr 'none';style-src 'self' https: 'unsafe-inline';upgrade-insecure-requests"
+								},
+								{
+									"key": "Cross-Origin-Opener-Policy",
+									"value": "same-origin"
+								},
+								{
+									"key": "Cross-Origin-Resource-Policy",
+									"value": "same-origin"
+								},
+								{
+									"key": "Origin-Agent-Cluster",
+									"value": "?1"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "no-referrer"
+								},
+								{
+									"key": "Strict-Transport-Security",
+									"value": "max-age=31536000; includeSubDomains"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-DNS-Prefetch-Control",
+									"value": "off"
+								},
+								{
+									"key": "X-Download-Options",
+									"value": "noopen"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "SAMEORIGIN"
+								},
+								{
+									"key": "X-Permitted-Cross-Domain-Policies",
+									"value": "none"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "0"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "100"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "95"
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 05 Feb 2025 11:37:44 GMT"
+								},
+								{
+									"key": "X-RateLimit-Reset",
+									"value": "1738755926"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "393"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"189-X2WrQrwJMyhkW3XdzE+PLSmb2Xs\""
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "[\n    {\n        \"_id\": \"67a34d56390982e5a8007d22\",\n        \"firstName\": \"John\",\n        \"lastName\": \"Doe\",\n        \"email\": \"john.doe@example.com\",\n        \"dateOfBirth\": \"2005-05-12T00:00:00.000Z\",\n        \"phoneNumber\": \"+1234567890\",\n        \"school\": \"67a3277f7171aa1a4825a700\",\n        \"status\": \"enrolled\",\n        \"createdBy\": \"67a331e47f5d1071a711f835\",\n        \"enrolledAt\": \"2025-02-05T11:36:54.740Z\",\n        \"updatedAt\": \"2025-02-05T11:36:54.740Z\",\n        \"createdAt\": \"2025-02-05T11:36:54.740Z\",\n        \"__v\": 0\n    }\n]"
+						}
+					]
+				},
+				{
+					"name": "getStudentbyId",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3YTMzMWU0N2Y1ZDEwNzFhNzExZjgzNSIsImlhdCI6MTczODc1NDExOCwiZXhwIjoxNzM4NzU3NzE4fQ.wbaV7Nfxz6M2oLRiNVo-bq0tV2XR_SkC93I1GC2N1nA"
+							}
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5000/api/students/student/:studentId",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"students",
+								"student",
+								":studentId"
+							],
+							"variable": [
+								{
+									"key": "studentId",
+									"value": "67a34d56390982e5a8007d22"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "success",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:5000/api/students/student/:studentId",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "5000",
+									"path": [
+										"api",
+										"students",
+										"student",
+										":studentId"
+									],
+									"variable": [
+										{
+											"key": "studentId",
+											"value": "67a34d56390982e5a8007d22"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Security-Policy",
+									"value": "default-src 'self';base-uri 'self';font-src 'self' https: data:;form-action 'self';frame-ancestors 'self';img-src 'self' data:;object-src 'none';script-src 'self';script-src-attr 'none';style-src 'self' https: 'unsafe-inline';upgrade-insecure-requests"
+								},
+								{
+									"key": "Cross-Origin-Opener-Policy",
+									"value": "same-origin"
+								},
+								{
+									"key": "Cross-Origin-Resource-Policy",
+									"value": "same-origin"
+								},
+								{
+									"key": "Origin-Agent-Cluster",
+									"value": "?1"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "no-referrer"
+								},
+								{
+									"key": "Strict-Transport-Security",
+									"value": "max-age=31536000; includeSubDomains"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-DNS-Prefetch-Control",
+									"value": "off"
+								},
+								{
+									"key": "X-Download-Options",
+									"value": "noopen"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "SAMEORIGIN"
+								},
+								{
+									"key": "X-Permitted-Cross-Domain-Policies",
+									"value": "none"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "0"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "100"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "95"
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 05 Feb 2025 11:41:24 GMT"
+								},
+								{
+									"key": "X-RateLimit-Reset",
+									"value": "1738756500"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "391"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"187-Cz9dh/8++emtBl6chL1JewY+hU4\""
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"_id\": \"67a34d56390982e5a8007d22\",\n    \"firstName\": \"John\",\n    \"lastName\": \"Doe\",\n    \"email\": \"john.doe@example.com\",\n    \"dateOfBirth\": \"2005-05-12T00:00:00.000Z\",\n    \"phoneNumber\": \"+1234567890\",\n    \"school\": \"67a3277f7171aa1a4825a700\",\n    \"status\": \"enrolled\",\n    \"createdBy\": \"67a331e47f5d1071a711f835\",\n    \"enrolledAt\": \"2025-02-05T11:36:54.740Z\",\n    \"updatedAt\": \"2025-02-05T11:36:54.740Z\",\n    \"createdAt\": \"2025-02-05T11:36:54.740Z\",\n    \"__v\": 0\n}"
+						}
+					]
+				},
+				{
+					"name": "updateStudentProfile",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3YTMzMWU0N2Y1ZDEwNzFhNzExZjgzNSIsImlhdCI6MTczODc1NDExOCwiZXhwIjoxNzM4NzU3NzE4fQ.wbaV7Nfxz6M2oLRiNVo-bq0tV2XR_SkC93I1GC2N1nA"
+							}
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"firstName\": \"Johnathan\",\r\n    \"lastName\": \"Doe\",\r\n    \"email\": \"johnathan.doe@example.com\",\r\n    \"dateOfBirth\": \"2005-05-12\",\r\n    \"phoneNumber\": \"+1987654321\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5000/api/students/:studentId",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"students",
+								":studentId"
+							],
+							"variable": [
+								{
+									"key": "studentId",
+									"value": "67a34d56390982e5a8007d22"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "success",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"firstName\": \"Johnathan\",\r\n    \"lastName\": \"Doe\",\r\n    \"email\": \"johnathan.doe@example.com\",\r\n    \"dateOfBirth\": \"2005-05-12\",\r\n    \"phoneNumber\": \"+1987654321\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:5000/api/students/:studentId",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "5000",
+									"path": [
+										"api",
+										"students",
+										":studentId"
+									],
+									"variable": [
+										{
+											"key": "studentId",
+											"value": "67a34d56390982e5a8007d22"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Security-Policy",
+									"value": "default-src 'self';base-uri 'self';font-src 'self' https: data:;form-action 'self';frame-ancestors 'self';img-src 'self' data:;object-src 'none';script-src 'self';script-src-attr 'none';style-src 'self' https: 'unsafe-inline';upgrade-insecure-requests"
+								},
+								{
+									"key": "Cross-Origin-Opener-Policy",
+									"value": "same-origin"
+								},
+								{
+									"key": "Cross-Origin-Resource-Policy",
+									"value": "same-origin"
+								},
+								{
+									"key": "Origin-Agent-Cluster",
+									"value": "?1"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "no-referrer"
+								},
+								{
+									"key": "Strict-Transport-Security",
+									"value": "max-age=31536000; includeSubDomains"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-DNS-Prefetch-Control",
+									"value": "off"
+								},
+								{
+									"key": "X-Download-Options",
+									"value": "noopen"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "SAMEORIGIN"
+								},
+								{
+									"key": "X-Permitted-Cross-Domain-Policies",
+									"value": "none"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "0"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "100"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "94"
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 05 Feb 2025 11:42:06 GMT"
+								},
+								{
+									"key": "X-RateLimit-Reset",
+									"value": "1738756500"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "462"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"1ce-efcrTMMJ9Gg2teecD60BchJIlVE\""
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Student profile updated successfully\",\n    \"student\": {\n        \"_id\": \"67a34d56390982e5a8007d22\",\n        \"firstName\": \"Johnathan\",\n        \"lastName\": \"Doe\",\n        \"email\": \"johnathan.doe@example.com\",\n        \"dateOfBirth\": \"2005-05-12T00:00:00.000Z\",\n        \"phoneNumber\": \"+1987654321\",\n        \"school\": \"67a3277f7171aa1a4825a700\",\n        \"status\": \"enrolled\",\n        \"createdBy\": \"67a331e47f5d1071a711f835\",\n        \"enrolledAt\": \"2025-02-05T11:36:54.740Z\",\n        \"updatedAt\": \"2025-02-05T11:42:06.595Z\",\n        \"createdAt\": \"2025-02-05T11:36:54.740Z\",\n        \"__v\": 0\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "transferStudent",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3YTMzMWU0N2Y1ZDEwNzFhNzExZjgzNSIsImlhdCI6MTczODc1NDExOCwiZXhwIjoxNzM4NzU3NzE4fQ.wbaV7Nfxz6M2oLRiNVo-bq0tV2XR_SkC93I1GC2N1nA"
+							}
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"studentId\": \"67a34d56390982e5a8007d22\",\r\n    \"newSchoolId\": \"67a34f75182ccbb36ec5a552\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:5000/api/students/transfer"
+					},
+					"response": [
+						{
+							"name": "success",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"studentId\": \"67a34d56390982e5a8007d22\",\r\n    \"newSchoolId\": \"67a34f75182ccbb36ec5a552\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "http://localhost:5000/api/students/transfer"
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Security-Policy",
+									"value": "default-src 'self';base-uri 'self';font-src 'self' https: data:;form-action 'self';frame-ancestors 'self';img-src 'self' data:;object-src 'none';script-src 'self';script-src-attr 'none';style-src 'self' https: 'unsafe-inline';upgrade-insecure-requests"
+								},
+								{
+									"key": "Cross-Origin-Opener-Policy",
+									"value": "same-origin"
+								},
+								{
+									"key": "Cross-Origin-Resource-Policy",
+									"value": "same-origin"
+								},
+								{
+									"key": "Origin-Agent-Cluster",
+									"value": "?1"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "no-referrer"
+								},
+								{
+									"key": "Strict-Transport-Security",
+									"value": "max-age=31536000; includeSubDomains"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-DNS-Prefetch-Control",
+									"value": "off"
+								},
+								{
+									"key": "X-Download-Options",
+									"value": "noopen"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "SAMEORIGIN"
+								},
+								{
+									"key": "X-Permitted-Cross-Domain-Policies",
+									"value": "none"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "0"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "100"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "93"
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 05 Feb 2025 11:46:36 GMT"
+								},
+								{
+									"key": "X-RateLimit-Reset",
+									"value": "1738756500"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "504"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"1f8-9cCCUt89bB85XshHW5w/Uav73LI\""
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Student transferred successfully\",\n    \"student\": {\n        \"_id\": \"67a34d56390982e5a8007d22\",\n        \"firstName\": \"Johnathan\",\n        \"lastName\": \"Doe\",\n        \"email\": \"johnathan.doe@example.com\",\n        \"dateOfBirth\": \"2005-05-12T00:00:00.000Z\",\n        \"phoneNumber\": \"+1987654321\",\n        \"school\": \"67a34f75182ccbb36ec5a552\",\n        \"status\": \"transferred\",\n        \"createdBy\": \"67a331e47f5d1071a711f835\",\n        \"enrolledAt\": \"2025-02-05T11:36:54.740Z\",\n        \"updatedAt\": \"2025-02-05T11:46:36.499Z\",\n        \"createdAt\": \"2025-02-05T11:36:54.740Z\",\n        \"__v\": 0,\n        \"transferredTo\": \"67a34f75182ccbb36ec5a552\"\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "deleteStudent",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": ""
+							}
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5000/api/students/:studentId",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"students",
+								":studentId"
+							],
+							"variable": [
+								{
+									"key": "studentId",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": []
 				}
 			]
 		}

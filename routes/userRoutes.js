@@ -20,7 +20,7 @@ router.post('/register', protect, authorize(['superAdmin']), registerUser);
 router.post('/register/self', registerSelf);
 
 // Login user and return JWT
-router.post('/login', protect, loginUser);
+router.post('/login', loginUser);
 
 // Update user profile (can be done by superAdmin or the user themselves)
 router.put('/updateProfile', protect, updateProfile);

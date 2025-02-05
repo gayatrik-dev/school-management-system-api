@@ -12,8 +12,9 @@ const createClassroom = async (req, res) => {
             return res.status(404).json({ message: 'School not found' });
         }
 
-        if (req.user.id !== school.createdBy.toString()) {
-            return res.status(403).json({ message: 'You are not authorized to create a classroom in this school' });
+        // Ensure the logged-in user is a schoolAdmin for the specified school
+        if (!school.schoolAdmins || !school.schoolAdmins.includes(req.user.id)) {
+            return res.status(403).json({ message: 'You are not authorized to create classrooms in this school' });
         }
 
         // Create the classroom
@@ -46,9 +47,9 @@ const getAllClassrooms = async (req, res) => {
             return res.status(404).json({ message: 'School not found' });
         }
 
-        // Ensure that the logged-in user is the schoolAdmin of the specified school
-        if (req.user.id !== school.createdBy.toString()) {
-            return res.status(403).json({ message: 'You are not authorized to view classrooms for this school' });
+        // Ensure the logged-in user is a schoolAdmin for the specified school
+        if (!school.schoolAdmins || (!school.schoolAdmins.includes(req.user.id) && req.user.role !== 'superAdmin')) {
+            return res.status(403).json({ message: 'You are not authorized to view classrooms in this school' });
         }
 
         const classrooms = await Classroom.find({ school: schoolId });
@@ -86,10 +87,10 @@ const updateClassroom = async (req, res) => {
             return res.status(404).json({ message: 'Classroom not found' });
         }
 
-        // Ensure that the logged-in user is the schoolAdmin for the specified school
         const school = await School.findById(classroom.school);
-        if (req.user.id !== school.createdBy.toString()) {
-            return res.status(403).json({ message: 'You are not authorized to update this classroom' });
+        // Ensure the logged-in user is a schoolAdmin for the specified school
+        if (!school.schoolAdmins || !school.schoolAdmins.includes(req.user.id)) {
+            return res.status(403).json({ message: 'You are not authorized to update classrooms in this school' });
         }
 
         classroom.name = name || classroom.name;
@@ -118,14 +119,14 @@ const deleteClassroom = async (req, res) => {
             return res.status(404).json({ message: 'Classroom not found' });
         }
 
-        // Ensure that the logged-in user is the schoolAdmin for the specified school
         const school = await School.findById(classroom.school);
-        if (req.user.id !== school.createdBy.toString()) {
-            return res.status(403).json({ message: 'You are not authorized to delete this classroom' });
+
+        // Ensure the logged-in user is a schoolAdmin for the specified school
+        if (!school.schoolAdmins || !school.schoolAdmins.includes(req.user.id)) {
+            return res.status(403).json({ message: 'You are not authorized to delete classrooms in this school' });
         }
 
-        // @ts-ignore
-        await classroom.remove();
+        await classroom.deleteOne({ _id: classroomId });
         res.status(200).json({ message: 'Classroom deleted successfully' });
     } catch (error) {
         console.error(error);

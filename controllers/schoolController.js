@@ -108,8 +108,7 @@ const deleteSchool = async (req, res) => {
             return res.status(404).json({ message: 'School not found' });
         }
 
-        // @ts-ignore
-        await school.remove();
+        await school.deleteOne({ _id: schoolId });
         res.status(200).json({ message: 'School deleted successfully' });
     } catch (error) {
         console.error(error);

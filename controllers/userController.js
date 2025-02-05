@@ -1,6 +1,7 @@
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 const User = require('../models/User');
+const School = require('../models/School');
 
 // Register a superAdmin (self-registration)
 const registerSelf = async (req, res) => {
@@ -28,7 +29,7 @@ const registerSelf = async (req, res) => {
 
         // Generate JWT Token
         const token = jwt.sign({ id: user._id }, process.env.JWT_SECRET, {
-            expiresIn: '30d',
+            expiresIn: '1h',
         });
 
         res.status(201).json({
@@ -43,10 +44,10 @@ const registerSelf = async (req, res) => {
 
 // Register a new user (only superAdmin can create schoolAdmin)
 const registerUser = async (req, res) => {
-    const { username, email, password, role } = req.body;
+    const { username, email, password, role, schoolId } = req.body;
 
     // Validate input
-    if (!username || !email || !password || !role) {
+    if (!username || !email || !password || !role || !schoolId) {
         return res.status(400).json({ message: 'Please provide all required fields' });
     }
 
@@ -69,6 +70,17 @@ const registerUser = async (req, res) => {
         const token = jwt.sign({ id: user._id }, process.env.JWT_SECRET, {
             expiresIn: '1h',
         });
+
+        const school = await School.findById(schoolId);
+        if (!school) {
+            throw new Error('School not found');
+        }
+
+        // Add the userId to the schoolAdmins array
+        if (!school.schoolAdmins.includes(user._id)) {
+            school.schoolAdmins.push(user._id);
+            await school.save();
+        }
 
         res.status(201).json({
             message: 'SchoolAdmin registered successfully',
